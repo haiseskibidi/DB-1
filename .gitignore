@@ -62,10 +62,6 @@ dist-ssr/
 *.log
 logs/
 
-# Selenium
-*.png
-screenshots/
-
 # Временные файлы
 *.tmp
 *.bak
