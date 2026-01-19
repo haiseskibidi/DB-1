@@ -92,6 +92,7 @@ def search_recipes(
             "cooking_time": r.cooking_time,
             "difficulty": r.difficulty,
             "description": r.description[:150] + "..." if r.description else "",
+            "image_url": r.image_url,
             "source_count": len(r.sources)
         })
     

@@ -30,6 +30,7 @@ class RecipeBase(BaseModel):
     cooking_time: Optional[str] = None
     difficulty: Optional[str] = None
     description: Optional[str] = None
+    image_url: Optional[str] = None
 
 class Recipe(RecipeBase):
     id: int

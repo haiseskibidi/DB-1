@@ -65,6 +65,15 @@ class RussianFoodParser:
                         if not title_elem: continue
                         title = title_elem.text.strip()
                         
+                        image_url = ""
+                        img_elem = card.select_one('.foto img') or card.select_one('img')
+                        if img_elem:
+                            image_url = img_elem.get('src', '')
+                            if image_url.startswith('//'):
+                                image_url = "https:" + image_url
+                            elif image_url.startswith('/'):
+                                image_url = "https://www.russianfood.com" + image_url
+                        
                         desc = ""
                         desc_elem = card.select_one('.announce p')
                         if desc_elem:
@@ -80,6 +89,7 @@ class RussianFoodParser:
                             'cooking_time': random.choice(['30 мин', '45 мин', '1 час', '1.5 часа']),
                             'difficulty': 'Средне',
                             'description': desc,
+                            'image_url': image_url,
                             'ingredients': ingredients,
                             'url': href
                         })

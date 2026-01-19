@@ -91,6 +91,11 @@ function HomePage() {
             <div className="recipes-grid">
               {recipes.map(recipe => (
                 <div key={recipe.id} className="recipe-card">
+                  {recipe.image_url && (
+                    <div className="recipe-image">
+                      <img src={recipe.image_url} alt={recipe.title} loading="lazy" />
+                    </div>
+                  )}
                   <h3>{recipe.title}</h3>
                   <div className="recipe-meta">
                     <span className="category">{recipe.category}</span>

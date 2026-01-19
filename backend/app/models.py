@@ -12,6 +12,7 @@ class Recipe(Base):
     cooking_time = Column(String)         
     difficulty = Column(String)           
     description = Column(Text)
+    image_url = Column(String, nullable=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
     sources = relationship("RecipeSource", back_populates="recipe", cascade="all, delete-orphan")

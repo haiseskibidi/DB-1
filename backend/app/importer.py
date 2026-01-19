@@ -67,7 +67,8 @@ def import_recipes_from_file(json_file, source_name, db: Session):
                 category=item.get('category'),
                 cooking_time=item.get('cooking_time'),
                 difficulty=item.get('difficulty'),
-                description=item.get('description')
+                description=item.get('description'),
+                image_url=item.get('image_url')
             )
             db.add(recipe)
             db.flush()

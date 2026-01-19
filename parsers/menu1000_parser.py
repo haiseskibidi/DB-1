@@ -48,6 +48,13 @@ class Menu1000Parser:
                         if not href.startswith('http'):
                             href = "https://1000.menu" + href
                         
+                        image_url = ""
+                        img_elem = item.select_one('.photo img')
+                        if img_elem:
+                            image_url = img_elem.get('src', '')
+                            if not image_url.startswith('http'):
+                                image_url = "https:" + image_url
+                        
                         desc_elem = item.select_one('.preview-text')
                         desc = desc_elem.text.strip() if desc_elem else ""
                         
@@ -64,6 +71,7 @@ class Menu1000Parser:
                             'cooking_time': time_val,
                             'difficulty': 'Сложно',
                             'description': desc,
+                            'image_url': image_url,
                             'ingredients': ingredients,
                             'url': href
                         })

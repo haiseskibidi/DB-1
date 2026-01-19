@@ -48,6 +48,11 @@ class PovarenokParser:
                         title = title_elem.text.strip()
                         href = title_elem['href']
                         
+                        image_url = ""
+                        img_elem = art.select_one('.m-img img')
+                        if img_elem:
+                            image_url = img_elem.get('src', '')
+                        
                         desc = ""
                         paragraphs = art.select('p')
                         for p in paragraphs:
@@ -69,6 +74,7 @@ class PovarenokParser:
                             'cooking_time': random.choice(['20 мин', '40 мин', '1 час']), 
                             'difficulty': 'Легко',
                             'description': desc,
+                            'image_url': image_url,
                             'ingredients': ingredients,
                             'url': href
                         })
